@@ -1,0 +1,9 @@
+en:
+  simple_form:
+    labels:
+      story:
+        blog: "Publish to blog:"
+    placeholders:
+      story:
+        title: "Title for your story"
+        url: "URL for your story"

@@ -1,0 +1,6 @@
+- content_for(:title) { blog.title }
+
+.row
+  .col-md-8.col-md-offset-2
+    .stories
+      = render blog.stories.recent

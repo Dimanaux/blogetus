@@ -1,0 +1,38 @@
+body {
+  padding-top: 60px;
+  background-color: #F4F4F4;
+}
+
+.with-background-picture {
+  background: asset_url("bg.jpg") no-repeat fixed;
+  background-size: cover;
+}
+
+.alert-notice {
+  @extend .alert-success;
+}
+
+.alert-alert {
+  @extend .alert-warning;
+}
+
+.active {
+  background-color: #eeeeee;
+}
+
+.well {
+  padding: 7px;
+}
+
+h1, h2, h3 {
+  margin-top: 9px;
+}
+
+hr {
+  margin-bottom: 3px;
+  margin-top: 3px;
+}
+
+textarea.form-control {
+  min-height: 300px;
+}

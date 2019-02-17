@@ -1,0 +1,8 @@
+ru:
+  welcome: Привет!
+  register: Создание аккаунта
+  sign_in:
+    submit: "Войти"
+  reset_password:
+    title: Восстановление пароля
+    submit: "Восстановить пароль"

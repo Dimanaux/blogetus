@@ -1,0 +1,9 @@
+.story data-story-id=story.id
+  .story-title
+    = link_to story.title, story
+  .story-footer
+    .row
+      .col-md-6.story-timestamp
+        = l story.created_at, format: :default
+      .col-md-6.story-actions
+        .pull-right = link_to "Read more...", story

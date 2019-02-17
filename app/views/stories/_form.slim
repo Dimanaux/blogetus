@@ -1,0 +1,13 @@
+= simple_form_for story do |f|
+  .row
+    .col-md-6
+      = f.association :blog, include_blank: false
+    .col-md-6
+      = f.label "Publish story or save it as draft?"
+      = f.input :published
+
+  = f.input :title, label: false, placeholder: "Title"
+  = f.input :url, label: false, placeholder: 'URL'
+  = f.input :content, label: false, placeholder: 'Your story'
+
+  = f.button :submit, class: "btn-lg"

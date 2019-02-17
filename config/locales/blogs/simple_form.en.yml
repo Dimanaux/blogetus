@@ -1,0 +1,10 @@
+en:
+  simple_form:
+    labels:
+      blog:
+        title: "Title for your new blog"
+        url: "URL"
+    placeholders:
+      blog:
+        title: "EXAMPLE: Blog about cats and photo"
+        url: "EXAMPLE: cats-and-photos"

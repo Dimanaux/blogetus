@@ -1,0 +1,9 @@
+- if flash[:notice]
+  .alert.alert-dismissible class="alert-notice"
+    button type="button" class="close" data-dismiss="alert" &times;
+    p = flash[:notice]
+
+- if flash[:alert]
+  .alert.alert-dismissible class="alert-alert"
+    button type="button" class="close" data-dismiss="alert" &times;
+    p = flash[:alert]

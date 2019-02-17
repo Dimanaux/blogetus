@@ -1,0 +1,24 @@
+.row
+  .col-md-8.col-md-offset-2
+    - current_user.blogs.each do |blog|
+      .well
+        h3 = blog.title
+        = link_to "edit blog", edit_users_blog_path(blog)
+        hr
+        .row
+          .col-md-6
+            strong Stories:
+            - if blog.published_stories?
+              ol
+              - blog.stories.published.each do |story|
+                li = link_to story.title, story
+            - else
+              p No stories published here yet
+          .col-md-6
+            strong Drafts:
+            - if blog.drafts?
+              ol
+              - blog.drafts.each do |draft|
+                li = link_to draft.title, draft
+            - else
+              p No drafts here yet

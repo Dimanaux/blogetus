@@ -1,0 +1,29 @@
+.navbar.navbar-default.navbar-fixed-top
+  .container
+    .navbar-header
+      button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a class="navbar-brand" href="/"
+        = content_for?(:title) ? yield(:title) : "Blogetus"
+
+    .collapse.navbar-collapse#bs-example-navbar-collapse-1
+      .nav.navbar-nav
+        - if user_signed_in?
+          = active_link_to "Dashboard", root_path, active: :exclusive, wrap_tag: :li
+          = active_link_to "New story", new_story_path, active: :exclusive, wrap_tag: :li
+          li.dropdown
+            a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"
+              = "My blogs "
+              span.caret
+            ul.dropdown-menu role="menu"
+              - if current_user.blogs.any?
+                - current_user.blogs.each do |blog|
+                  li = link_to blog.title, blog_path(url: blog.url)
+                li.divider
+              - else
+              li = link_to "Create new blog", new_users_blog_path
+
+      = render "navigation_user"

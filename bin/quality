@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+
+set -e
+
+bin/rubocop -c config/rubocop.yml
+
+bin/bundle-audit update
+bin/bundle-audit

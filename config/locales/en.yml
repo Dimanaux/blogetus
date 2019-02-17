@@ -1,0 +1,17 @@
+en:
+  welcome: Welcome!
+  register: Create an account
+  sign_in:
+    submit: "Sign in"
+    email:
+      placeholder: "Your E-Mail"
+    password:
+      placeholder: "Your password"
+  sign_up:
+    submit: "Sign up"
+  reset_password:
+    title: Reset password
+    submit: "Send me reset password instructions"
+  change_password:
+    title: Change password
+    submit: Change password

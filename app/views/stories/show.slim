@@ -1,0 +1,16 @@
+- content_for(:title) { story.blog.title }
+
+.row
+  .col-md-8.col-md-offset-2
+    .story data-story-id=story.id
+      .story-title
+        = link_to story.title, story
+      .story-content
+        = story.content.html_safe
+      .story-footer
+        .row
+          .col-md-6.story-timestamp
+            = l story.created_at, format: :default
+          .col-md-6.story-actions
+            - if story.user == current_user
+              .pull-right = link_to "Edit", edit_story_path(story)
