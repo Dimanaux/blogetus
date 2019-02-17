@@ -25,6 +25,6 @@ module Blogetus
     I18n.load_path += Dir[Rails.root.join("config", "locales", "**/*.{rb,yml}").to_s]
 
     config.action_mailer.default_options = { from: ENV.fetch("MAILER_SENDER_ADDRESS") }
-    config.action_mailer.default_url_options = { host: ENV.fetch("HOST"), port: ENV.fetch("PORT") }
+    config.action_mailer.default_url_options = { host: ENV.fetch("HOST") }
   end
 end
