@@ -11,7 +11,7 @@
         .row
           .col-md-6.story-timestamp
             = "Posted by "
-            = story.user.email
+            = @author.name
             = " on "
             = l story.created_at, format: :default
           .col-md-6.story-actions
