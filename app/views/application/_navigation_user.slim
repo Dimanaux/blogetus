@@ -2,8 +2,7 @@ ul.nav.navbar-nav.navbar-right
   - if user_signed_in?
     li
       a
-        = "signed in as "
-        = current_user.name
+        = "signed in as #{current_user.name}"
     li.dropdown
       a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"
         = "My account "
