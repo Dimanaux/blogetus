@@ -18,7 +18,9 @@ class StoriesController < ApplicationController
     respond_with story
   end
 
-  def show; end
+  def show
+    @author = UserDecorator.new(story.user)
+  end
 
   def update
     story.update(story_params)
