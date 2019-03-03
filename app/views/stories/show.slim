@@ -5,8 +5,9 @@
     .story data-story-id=story.id
       .story-title
         = link_to story.title, story
-      .story-content
-        = story.content.html_safe
+
+      .story-content#story-content
+        = markdown(story.content.html_safe)
       .story-footer
         .row
           .col-md-6.story-timestamp
