@@ -1,4 +1,7 @@
 class UserDecorator < BaseDecorator
+  delegate :name, :to_model
+  delegate :email, :to_model
+
   def blogs
     @blogs ||= object.blogs
   end
