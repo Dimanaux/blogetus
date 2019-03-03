@@ -25,6 +25,9 @@ gem "active_link_to"
 gem "simple_form"
 gem "slim-rails"
 
+# markdown support
+gem "redcarpet"
+
 group :development, :test do
   gem "awesome_print"
   gem "bundler-audit", require: false
