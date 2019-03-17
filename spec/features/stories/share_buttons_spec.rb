@@ -12,8 +12,6 @@ describe "Share buttons" do
   it "Twitter btn present" do
     visit story_path(story)
 
-    puts page 
-
     expect(page).to have_content("Twitter")
   end
 

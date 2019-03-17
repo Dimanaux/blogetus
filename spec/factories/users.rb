@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :user do
     email { generate(:email) }
-    password { "123456" }
-    password_confirmation { "123456" }
+    password { generate(:password) }
+    password_confirmation { password }
 
     confirmed_at { Time.zone.now }
   end
