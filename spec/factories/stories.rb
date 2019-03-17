@@ -13,7 +13,7 @@ FactoryBot.define do
         FFaker::HTMLIpsum.p
     end
 
-    published { true }
+    published { generate(:published) }
 
     blog { create :blog }
 

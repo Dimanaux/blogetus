@@ -7,7 +7,7 @@ FactoryBot.define do
     "qwerty#{n}"
   end
 
-  sequence :published do |n|
+  sequence :published do
     true
   end
 
