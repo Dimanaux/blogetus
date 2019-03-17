@@ -2,7 +2,9 @@ FactoryBot.define do
   factory :story do
     title { FFaker::Lorem.phrase }
 
-    brief { FFaker::Lorem.phrase }
+    # brief { FFaker::Lorem.phrase }
+
+    url { FFaker::Lorem.phrase }
 
     content do
       FFaker::HTMLIpsum.p +
@@ -11,8 +13,10 @@ FactoryBot.define do
         FFaker::HTMLIpsum.p
     end
 
-    published true
+    published { true }
 
-    user
+    blog { create :blog }
+
+    user { blog.user }
   end
 end

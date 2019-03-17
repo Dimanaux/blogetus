@@ -30,6 +30,7 @@ group :development, :test do
   gem "bundler-audit", require: false
   gem "dotenv-rails"
   gem "factory_bot_rails"
+  gem "ffaker"
   gem "pry-rails"
   gem "rspec-rails", "~> 3.7"
   gem "rubocop", require: false
