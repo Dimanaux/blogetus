@@ -2,15 +2,14 @@ class LikesController < ApplicationController
   before_action :find_story
   before_action :find_like, only: [:destroy]
 
+  before_action :unwatch_story, only: [:create, :destroy]
+
   def create
     if already_liked?
       flash[:notice] = "Cannot like twice"
     else
       @story.likes.create(user_id: current_user.id)
     end
-    # prevent adding 1 view on each like
-    @story.views_count -= 1
-    @story.save
     redirect_to story_path(@story)
   end
 
@@ -20,13 +19,16 @@ class LikesController < ApplicationController
     else
       @like.destroy
     end
-    # prevent adding 1 view on each unlike
-    @story.views_count -= 1
-    @story.save
     redirect_to story_path(@story)
   end
 
   private
+
+  # prevent adding 1 view on each like/unlike
+  def unwatch_story
+    @story.views_count -= 1
+    @story.save
+  end
 
   def find_story
     @story = Story.find(params[:story_id])
