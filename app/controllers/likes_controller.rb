@@ -8,6 +8,9 @@ class LikesController < ApplicationController
     else
       @story.likes.create(user_id: current_user.id)
     end
+    # prevent adding 1 view on each like
+    @story.views_count -= 1
+    @story.save
     redirect_to story_path(@story)
   end
 
@@ -17,6 +20,9 @@ class LikesController < ApplicationController
     else
       @like.destroy
     end
+    # prevent adding 1 view on each unlike
+    @story.views_count -= 1
+    @story.save
     redirect_to story_path(@story)
   end
 
