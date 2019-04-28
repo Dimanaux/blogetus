@@ -5,7 +5,8 @@
     .row
       .col-md-6.story-timestamp
         = l story.created_at, format: :default
-      	= " | #{story.views_count} #{'view'.pluralize story.views_count} "
+        = " | #{story.views_count} #{'view'.pluralize story.views_count}"
+        = " | #{story.likes.count} #{'like'.pluralize story.likes.count}"
       .col-md-6.story-actions
         .pull-right
-        	= link_to "Read more...", story
+          = link_to "Read more...", story
