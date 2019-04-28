@@ -10,13 +10,17 @@
         = markdown(story.content.html_safe)
       .story-footer
         .row
-          .col-md-6.story-timestamp
+          .col-md-8.story-timestamp
             = "Posted by #{@author.name} on "
             = l story.created_at, format: :default
-            = " | #{story.views_count} #{'view'.pluralize story.views_count} "
-          .col-md-6.story-actions
-            - if story.user == current_user
-              .pull-right = link_to "Edit", edit_story_path(story)
+            = " | #{story.views_count} #{'view'.pluralize story.views_count}"
+            = " | #{story.likes.count} #{'like'.pluralize story.likes.count}"
+          .col-md-4.story-actions
+            .pull-right
+              = link_to 'Like', story_likes_path(story), method: :post
+              - if story.user == current_user
+                = " | "
+                = link_to "Edit", edit_story_path(story)
 
     .share-buttons
       a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=#{u request.base_url}#{u request.fullpath}" target="_blank" rel="noopener" aria-label="Facebook"
