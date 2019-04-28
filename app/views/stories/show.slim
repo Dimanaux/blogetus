@@ -17,7 +17,10 @@
             = " | #{story.likes.count} #{'like'.pluralize story.likes.count}"
           .col-md-4.story-actions
             .pull-right
-              = link_to 'Like', story_likes_path(story), method: :post
+              - if already_liked
+                = link_to 'Unlike', story_like_path(story, already_liked), method: :delete
+              - else
+                = link_to 'Like', story_likes_path(story), method: :post
               - if story.user == current_user
                 = " | "
                 = link_to "Edit", edit_story_path(story)
