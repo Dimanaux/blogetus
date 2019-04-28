@@ -9,6 +9,10 @@ Rails.application.routes.draw do
 
   resources :stories
 
+  resources :stories do
+    resources :likes
+  end
+
   authenticated :user do
     root to: "user_dashboard#show"
   end
