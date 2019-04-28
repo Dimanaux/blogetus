@@ -20,6 +20,8 @@ class StoriesController < ApplicationController
 
   def show
     @author = UserDecorator.new(story.user)
+    story.views_count += 1
+    story.save
   end
 
   def update
