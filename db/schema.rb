@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190303154816) do
+ActiveRecord::Schema.define(version: 20190428130356) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20190303154816) do
     t.datetime "updated_at", null: false
     t.string "url", default: ""
     t.boolean "published", default: false
+    t.integer "views_count", default: 0, null: false
     t.index ["blog_id"], name: "index_stories_on_blog_id"
   end
 
