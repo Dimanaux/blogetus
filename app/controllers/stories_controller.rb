@@ -5,6 +5,8 @@ class StoriesController < ApplicationController
   expose_decorated(:story)
   expose_decorated(:stories) { current_user.stories }
 
+  helper_method :already_liked
+
   STORY_PARAMS = %i[title url content published blog_id].freeze
 
   def index; end
@@ -29,6 +31,10 @@ class StoriesController < ApplicationController
     story.save
 
     respond_with story
+  end
+
+  def already_liked
+    story.likes.find {|l| l.user_id == current_user.id }
   end
 
   private
