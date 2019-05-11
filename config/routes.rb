@@ -13,7 +13,10 @@ Rails.application.routes.draw do
     resources :likes
   end
 
-  # resource :favourites
+  resources :blogs, param: :url do
+    resources :stories, only: :show, param: :url
+  end
+
   get '/favourites', to: 'favourites#index'
 
   resources :stories do
