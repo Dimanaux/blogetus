@@ -17,6 +17,11 @@
             = " | #{story.likes.count} #{'like'.pluralize story.likes.count}"
           .col-md-4.story-actions
             .pull-right
+              - if in_favourites
+                = link_to "\u2605", story_favourite_path(story, in_favourites), method: :delete
+              - else
+                = link_to "\u2606", story_favourites_path(story), method: :post
+              = " | "
               - if already_liked
                 = link_to 'Unlike', story_like_path(story, already_liked), method: :delete
               - else

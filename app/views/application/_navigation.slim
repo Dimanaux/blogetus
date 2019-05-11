@@ -25,5 +25,6 @@
                 li.divider
               - else
               li = link_to "Create new blog", new_users_blog_path
+          = active_link_to "Favourites", favourites_path, active: :exclusive, wrap_tag: :li
 
       = render "navigation_user"
