@@ -2,7 +2,7 @@ class StoriesController < ApplicationController
   before_action :authenticate_user!, except: :show
   before_action :check_for_blog_created!
 
-  expose_decorated(:story)
+  expose_decorated :story, :find_story_by_id_or_url
   expose_decorated(:stories) { current_user.stories }
 
   helper_method :already_liked
@@ -43,6 +43,15 @@ class StoriesController < ApplicationController
   end
 
   private
+
+  def find_story_by_id_or_url
+    if params[:id]
+      Story.find(params[:id])
+    else
+      blog = Blog.find_by(url: params[:blog_url])
+      Story.find_by(blog_id: blog.id, url: params[:url])
+    end
+  end
 
   def story_params
     params.require(:story).permit(*STORY_PARAMS)
