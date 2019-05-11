@@ -13,6 +13,13 @@ Rails.application.routes.draw do
     resources :likes
   end
 
+  # resource :favourites
+  get '/favourites', to: 'favourites#index'
+
+  resources :stories do
+    resources :favourites
+  end
+
   authenticated :user do
     root to: "user_dashboard#show"
   end
