@@ -13,4 +13,5 @@ class User < ApplicationRecord
   has_many :stories, dependent: :destroy
   has_many :blogs, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :favourites, dependent: :destroy
 end

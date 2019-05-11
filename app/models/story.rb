@@ -11,6 +11,7 @@ class Story < ApplicationRecord
   belongs_to :blog, counter_cache: true
 
   has_many :likes, dependent: :destroy
+  has_many :favourites, dependent: :destroy
 
   scope :published, -> { where(published: true) }
   scope :not_published, -> { where(published: false) }
