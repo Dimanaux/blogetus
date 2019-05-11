@@ -1,7 +1,7 @@
 = simple_form_for story do |f|
   .row
     .col-md-6
-      = f.association :blog, include_blank: false
+      = f.association :blog, collection: current_user.blogs, include_blank: false
     .col-md-6
       = f.label "Publish story or save it as draft?"
       = f.input :published
