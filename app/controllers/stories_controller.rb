@@ -6,6 +6,7 @@ class StoriesController < ApplicationController
   expose_decorated(:stories) { current_user.stories }
 
   helper_method :already_liked
+  helper_method :in_favourites
 
   STORY_PARAMS = %i[title url content published blog_id].freeze
 
@@ -34,7 +35,11 @@ class StoriesController < ApplicationController
   end
 
   def already_liked
-    story.likes.find {|l| l.user_id == current_user.id }
+    story.likes.find { |l| l.user_id == current_user.id }
+  end
+
+  def in_favourites
+    story.favourites.find { |f| f.user_id == current_user.id }
   end
 
   private
